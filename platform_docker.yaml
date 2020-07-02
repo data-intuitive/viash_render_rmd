@@ -1,0 +1,14 @@
+type: docker
+image: rocker/tidyverse:latest
+# apt:
+#   packages:
+#   - pandoc
+r:
+  cran: 
+  - optparse
+#   - tidyverse
+#   - rmarkdown
+volumes:
+- name: data
+  mount: /data
+workdir: /app

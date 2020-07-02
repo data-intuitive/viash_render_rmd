@@ -1,0 +1,30 @@
+name: render_rmd
+description: |
+  Render an Rmd file.
+arguments:
+- name: "--input"
+  alternatives: ["-i"]
+  type: file
+  description: The Rmd file to render
+  direction: input
+  required: true
+- name: "--format"
+  alternatives: ["-f"]
+  type: string
+  description: "The format to render the Rmd file to. Must be one of: md, github, html, pdf, odt, rtf, word, latex, context."
+  direction: input
+#  values: [md, github, html, pdf, odt, rtf, word, latex, context]
+  required: false
+- name: "--output"
+  alternatives: ["-o"]
+  type: file
+  description: The output file.
+  direction: output
+  required: true
+resources: 
+- type: r_script
+  path: script.R
+tests:
+- type: r_script
+  path: test/run_test.R
+- path: test/README.Rmd
